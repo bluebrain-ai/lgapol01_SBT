@@ -97,7 +97,7 @@ public class Lgapol01 {
     private int wsCaHeaderLen = 0;
     private int wsRequiredCaLen = 0;
     private int eibcalen;
-    
+
     private String wsAbstime;
     private String wsDate;
     private String wsTime;
@@ -155,7 +155,7 @@ public class Lgapol01 {
         } catch (Exception e) {
             log.error(e);
         }
-        return new ResponseEntity<>(dfhcommarea,HttpStatus.OK);
+        return new ResponseEntity<>(dfhcommarea, HttpStatus.OK);
     }
     /* return */
 
