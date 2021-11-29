@@ -4,5 +4,5 @@
 /.settings
 /.vscode
 /lgapol01_SBT_Compile.log
-/log
-/target
+*.log
+/target/

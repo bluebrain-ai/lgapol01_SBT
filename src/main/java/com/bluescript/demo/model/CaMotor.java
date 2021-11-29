@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import java.util.*;
+import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ public class CaMotor {
     private String caMRegnumber;
     private String caMColour;
     private int caMCc;
-    private String caMManufactured;
+    private Date caMManufactured;
     private int caMPremium;
     private int caMAccidents;
     private String caMFiller;
