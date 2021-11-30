@@ -97,7 +97,7 @@ public class Lgapol01 {
     private int wsCaHeaderLen = 0;
     private int wsRequiredCaLen = 0;
     private int eibcalen;
-    
+
     private String wsAbstime;
     private String wsDate;
     private String wsTime;
@@ -139,8 +139,7 @@ public class Lgapol01 {
         if (inRulesMode && dfhcommarea.getCaRequestId() == "01AEND") {
             try {
                 Mono<Dfhcommarea> lgapbr01Resp = webclientBuilder.post().uri(lgapbr01_URI)
-                        .body(Mono.just(dfhcommarea), Dfhcommarea.class).retrieve().bodyToMono(Dfhcommarea.class)
-                        .timeout(Duration.ofMillis(10_000));
+                        .body(Mono.just(dfhcommarea), Dfhcommarea.class).retrieve().bodyToMono(Dfhcommarea.class);// .timeout(Duration.ofMillis(10_000));
                 dfhcommarea = lgapbr01Resp.block();
             } catch (Exception e) {
                 log.error(e);
@@ -149,13 +148,12 @@ public class Lgapol01 {
         }
         try {
             Mono<Dfhcommarea> lgapdb01Resp = webclientBuilder2.post().uri(lgapdb01_URI)
-                    .body(Mono.just(dfhcommarea), Dfhcommarea.class).retrieve().bodyToMono(Dfhcommarea.class)
-                    .timeout(Duration.ofMillis(10_000));
+                    .body(Mono.just(dfhcommarea), Dfhcommarea.class).retrieve().bodyToMono(Dfhcommarea.class);// .timeout(Duration.ofMillis(10_000));
             dfhcommarea = lgapdb01Resp.block();
         } catch (Exception e) {
             log.error(e);
         }
-        return new ResponseEntity<>(dfhcommarea,HttpStatus.OK);
+        return new ResponseEntity<>(dfhcommarea, HttpStatus.OK);
     }
     /* return */
 
@@ -171,8 +169,7 @@ public class Lgapol01 {
         try {
 
             Mono<ErrorMsg> lgstsqResp = webclientBuilder3.post().uri(LGSTSQ_URI)
-                    .body(Mono.just(errorMsg), ErrorMsg.class).retrieve().bodyToMono(ErrorMsg.class)
-                    .timeout(Duration.ofMillis(10_000));
+                    .body(Mono.just(errorMsg), ErrorMsg.class).retrieve().bodyToMono(ErrorMsg.class);// .timeout(Duration.ofMillis(10_000));
             errorMsg = lgstsqResp.block();
         } catch (Exception e) {
             log.error(e);
@@ -182,8 +179,7 @@ public class Lgapol01 {
                 caData = (dfhcommarea.getCaRequestId().substring(0, 9));
                 try {
                     Mono<String> lgstsqResp = webclientBuilder3.post().uri(LGSTSQ_URI)
-                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class)
-                            .timeout(Duration.ofMillis(10_000));
+                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class);// .timeout(Duration.ofMillis(10_000));
                     caErrorMsg = lgstsqResp.block();
                 } catch (Exception e) {
                     log.error(e);
@@ -194,8 +190,7 @@ public class Lgapol01 {
                         + dfhcommarea.getCaRequestSpecific().substring(0, 72));
                 try {
                     Mono<String> lgstsqResp = webclientBuilder3.post().uri(LGSTSQ_URI)
-                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class)
-                            .timeout(Duration.ofMillis(10_000));
+                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class);// .timeout(Duration.ofMillis(10_000));
                     caErrorMsg = lgstsqResp.block();
                 } catch (Exception e) {
                     log.error(e);
