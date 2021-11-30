@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import java.util.*;
+import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class CaCustomerRequest {
     private String caFirstName;
     private String caLastName;
-    private String caDob;
+    private Date caDob;
     private String caHouseName;
     private String caHouseNum;
     private String caPostcode;

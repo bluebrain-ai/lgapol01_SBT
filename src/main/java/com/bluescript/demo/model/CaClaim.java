@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 public class CaClaim {
     private long caCNum;
-    private String caCDate;
+    private Date caCDate;
     private int caCPaid;
     private int caCValue;
     private String caCCause;
@@ -21,7 +21,7 @@ public class CaClaim {
     private String caCFiller;
 
     public String toFixedWidthString() {
-        return caCNum + caCDate + caCPaid + caCValue + caCCause + caCObservations + caCFiller;
+        return String.valueOf(caCNum) + caCDate + caCPaid + caCValue + caCCause + caCObservations + caCFiller;
     }
 
 }
