@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class CaPolicyCommon {
     private Date caIssueDate;
     private Date caExpiryDate;
-    private Timestamp caLastchanged;
+    private String caLastchanged;
     private long caBrokerid;
     private String caBrokersref;
     private int caPayment;

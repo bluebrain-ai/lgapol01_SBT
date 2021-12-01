@@ -151,8 +151,11 @@ public class Lgapol01 {
             Mono<Dfhcommarea> lgapdb01Resp = webclientBuilder2.post().uri(lgapdb01_URI)
                     .body(Mono.just(dfhcommarea), Dfhcommarea.class).retrieve().bodyToMono(Dfhcommarea.class);// .timeout(Duration.ofMillis(10_000));
             dfhcommarea = lgapdb01Resp.block();
+            log.warn("Response:" + dfhcommarea);
         } catch (Exception e) {
             log.error(e);
+            throw new RuntimeException("Error in LGAPDB01");
+
         }
         return new ResponseEntity<>(dfhcommarea, HttpStatus.OK);
     }
