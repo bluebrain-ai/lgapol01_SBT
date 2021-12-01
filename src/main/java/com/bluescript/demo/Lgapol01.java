@@ -126,6 +126,7 @@ public class Lgapol01 {
 
         // }
         BeanUtils.copyProperties(payload, dfhcommarea);
+        log.warn("payload:" + payload);
         dfhcommarea.setCaReturnCode(00);
         emVariable.setEmCusnum(String.valueOf(dfhcommarea.getCaCustomerNum()));
         wsRequiredCaLen = wsCaHeaderLen + wsRequiredCaLen;
